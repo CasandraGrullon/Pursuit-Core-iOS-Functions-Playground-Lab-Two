@@ -5,6 +5,15 @@ import UIKit
 // Write a function named average(of:) that returns the average of an array of Doubles
 
 // Your function here
+func average(of arr: [Double]) -> Double {
+    var sum : Double = 0
+    var aver : Double = 0
+    for num in arr {
+        sum = num + num
+        aver = sum / Double((arr.count - 1))
+    }
+    return aver
+}
 
 let testCasesOne: [([Double], Double)] = [
     (input: [1,2,3,4,5], expectedOutput: 3),
@@ -13,10 +22,10 @@ let testCasesOne: [([Double], Double)] = [
     (input: [1.5, 2.25, 4.5, -1.5], expectedOutput: 1.6875),
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = average(of: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesOne {
+    let output = average(of: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 // Question Two
 

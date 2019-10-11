@@ -9,8 +9,8 @@ func average(of arr: [Double]) -> Double {
     var sum : Double = 0
     var aver : Double = 0
     for num in arr {
-        sum = num + num
-        aver = sum / Double((arr.count - 1))
+        sum += num
+        aver = sum / Double(arr.count)
     }
     return aver
 }
@@ -32,6 +32,17 @@ for (input, expectedOutput) in testCasesOne {
 // Write a function named frequencyDictionary(of:) that takes a String as input and returns a dictionary that maps each character its number of occurrances
 
 // Your function here
+func frequencyDictionary(of x: String) -> [Character: Int] {
+    var dictionary2: [Character : Int] = [:]
+    for char in x {
+        if dictionary2[char] == nil {
+        dictionary2[char] = 1
+        } else {
+        dictionary2[char] = (dictionary2[char] ?? 0) + 1
+        }
+    }
+    return dictionary2
+}
 
 let testCasesTwo: [(String, [Character: Int])] = [
     (input: "hello", expectedOutput: ["h": 1, "e": 1, "l": 2, "o": 1]),
@@ -39,10 +50,10 @@ let testCasesTwo: [(String, [Character: Int])] = [
     (input: "More words", expectedOutput: ["M": 1, "o": 2, "r": 2, "e": 1, " ": 1, "w": 1, "d": 1, "s": 1])
 ]
 
-//for (input, expectedOutput) in testCasesTwo {
-//    let output = frequencyDictionary(of: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesTwo {
+    let output = frequencyDictionary(of: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 // Question Three
